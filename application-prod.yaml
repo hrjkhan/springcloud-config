@@ -27,3 +27,5 @@ eureka:
   instance:  #主机名称修改
       instance-id: cloud-config-center
       prefer-ip-address: true
+config:
+  info: this is a client2
