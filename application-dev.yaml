@@ -1,30 +1,35 @@
+server:
+  port: 3344
+
+spring:
+   application:
+       name: cloud-config-client1   # 注册进eurkea的服务名
+   cloud:
+       config:
+         server:
+           git:
+             uri: https://github.com/hrjkhan/springcloud-config.git  # github上git仓库的名称
+             force-pull: true
+             username: hrjkhan
+             password: hanlin199687
+           search-paths:
+                   - springcloud-config
+       lable: master
+
+
+# 服务注册到eurka地址
+eureka:
+  client:
+    #false表示向注册中心注册自己
+    register-with-eureka: true
+    #true 表示是否从Eurekaserver抓取已经有的注册信息,默认为true,单节点无所谓,集群必须为true,才能配合ribbion使用负载均衡
+    fetch-registry: true
+    service-url:
+    #设置与eureka server交互的地址查询服务和注册服务都需要依赖这个地址
+       #defaultZone: http://localhost:7001/eureka   单机版
+           defaultZone: http://eureka7002.com:7002/eureka,http://eureka7001.com:7001/eureka  #集群版
+  instance:  #主机名称修改
+      instance-id: cloud-config-center
+      prefer-ip-address: true
 config:
-    server:
-      port: 3344
-
-    spring:
-       application:
-           name: cloud-config-client1   # 注册进eurkea的服务名
-       cloud:
-           config:
-             server:
-               git:
-                 uri: git@github.com:hrjkhan/springcloud-config.git  # github上git仓库的名称
-               search-paths:
-                       - spring-cloud-config
-           lable: master
-
-    # 服务注册到eurka地址
-    eureka:
-      client:
-        #false表示向注册中心注册自己
-        register-with-eureka: true
-        #true 表示是否从Eurekaserver抓取已经有的注册信息,默认为true,单节点无所谓,集群必须为true,才能配合ribbion使用负载均衡
-        fetch-registry: true
-        service-url:
-        #设置与eureka server交互的地址查询服务和注册服务都需要依赖这个地址
-           #defaultZone: http://localhost:7001/eureka   单机版
-               defaultZone: http://eureka7002.com:7002/eureka,http://eureka7001.com:7001/eureka  #集群版
-      instance:  #主机名称修改
-          instance-id: cloud-config-center
-          prefer-ip-address: true
+  info: this is a client1
