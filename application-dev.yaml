@@ -3,7 +3,7 @@ server:
 
 spring:
    application:
-       name: cloud-config-center   # 注册进eurkea的服务名
+       name: cloud-config-client1   # 注册进eurkea的服务名
    cloud:
        config:
          server:
