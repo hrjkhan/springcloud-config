@@ -13,4 +13,4 @@ spring:
                    - springcloud-config
        lable: master
 config:
-  info: this is   test client
+  info: this is  test 生命的真谛在于运动,生活的意义在于平淡
