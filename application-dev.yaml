@@ -13,4 +13,4 @@ spring:
                    - springcloud-config
        lable: master
 config:
-  info: this is a client1  update2
+  info: this is   test client
