@@ -1,6 +1,3 @@
-server:
-  port: 3355
-
 spring:
    application:
        name: cloud-config-client1   # 注册进eurkea的服务名
